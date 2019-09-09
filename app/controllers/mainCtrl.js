@@ -4,7 +4,7 @@ angular.module(module).controller('mainCtrl', function ($rootScope, $scope, auth
     $rootScope.api = api;
     
     $rootScope.loading = 'none';
-    $scope.title = 'Incubus';
+    $scope.title = ' -- WGA --';
 
     $rootScope.loadon = function () {
         var load = document.getElementById('loading');

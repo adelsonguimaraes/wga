@@ -1,20 +1,32 @@
+body, html {
+    padding:0;
+    margin: 0;
+}
 body {
-    /* position: absolute;
-    overflow: auto;
-    height: 100vh; */
+    background: url('../../libs/img/back.jpg');
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+}
+.wrapper { 
+    background: #2d388cb8; /*#8c2d2d;*/
+    /* width: 100%; */
+    height: inherit;
+    color: #fff;
+    padding: 15px;
 }
 header {
-    background: #4c347b;
+    background: #8c2d2d;
     position: fixed;
     top: 0;
     left:0;
     width: 100%;
-    height: 65px;
+    height: 45px;
     z-index: 2;
     display: grid;
     grid-template-columns: 10% auto;
     /* border-bottom: 1px solid #ccc; */
-    padding: 5px;
+    /* padding: 2px; */
     -webkit-box-shadow: 0px -1px 2px 3px rgba(0,0,0,0.42);
     -moz-box-shadow: 0px -1px 2px 3px rgba(0,0,0,0.42);
     box-shadow: 0px -1px 2px 3px rgba(0,0,0,0.42);
@@ -26,7 +38,7 @@ header img {
 header a {
     text-align: center;
     color: #fff !important;
-    padding: 15px;
+    padding: 10px;
     font-size: 20px;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-weight: bold;

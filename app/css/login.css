@@ -1,29 +1,45 @@
-.logo-sistema {
+.container {
+    display: flex;
+    height: 100%;
+    align-items: center;
     width: 100%;
-    /* overflow: hidden; */
-    padding: 15px;
-    text-align: center;
+    overflow: scroll;
 }
-.logo-sistema .profile {
-    border-radius: 100%;
-    overflow: hidden;
-    height: 200px;
-    width: 200px;
+.container .login-panel {
+    max-width: 400px;
+    flex:1;
     margin: 0 auto;
+}
+
+.container .login-panel .img {
+    width: 80%;
+    margin-left: 40px;
+}
+
+.container .login-panel .titulo {
+    display: block;
     text-align: center;
-    position: relative;
+    padding: 15px;
+    margin-bottom:25px;
 }
-.logo-sistema img {
-    height: 200px;
-    margin-left:auto;
-    margin-right:auto;
-    position: absolute;
-    left: 0;
-}
-.boas-vindas {
-    width: 100%;
+
+.container .login-panel .titulo h1 {
     font-weight: bold;
+}
+.container .login-panel .titulo small {
+    font-size:16px;
+}
+
+.container .login-panel input {
+    background: rgba(202, 75, 75, 0.17);
+    border: 1px solid #fff;
+    color: #fff;
+}
+.container .login-panel .inscreverse {
+    display: block;
     text-align: center;
-    padding: 10px;
-    font-size: 25px;
+    padding: 15px;
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
 }

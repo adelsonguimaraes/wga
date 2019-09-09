@@ -27,7 +27,7 @@
     <link rel="manifest" href="manifest.json">
 
     <base href="./">
-    <title>Incubus</title>
+    <title>WGA - Web Gerenciador de Atividades</title>
 
     <!-- FavIcon -->
     <link rel="icon" href="favicon.ico" />
@@ -70,11 +70,10 @@
 
 <body ng-controller="mainCtrl as main" class="{{$state.current.data.specialClass}}" landing-scrollspy id="page-top">
     <!-- Main view  -->
-    <div ui-view></div>
+    <div ui-view class="wrapper"></div>
     <div id="loading" class="main-splash" style="display:{{loading}}">
         <img style="margin-top:120px;" src="libs/img/ajax_loader_blue.gif" alt="">
     </div>
-    <div class="btn" style="top:12px; right:18px; z-index: 500; position: fixed; background: #ececec;" onClick="window.location.reload(true)" title="Atualizar Cache"><i class="fa fa-cloud-download"></i></div>
 </body>
 <!-- Main Angular scripts-->
 <script type="text/javascript" src="libs/js/jquery/jquery-2.1.1.min.js"></script>
