@@ -2,10 +2,10 @@
 // model : projetousuario
 
 /*
-	Projeto: WGA - Web Gerenciador de Atividades.
+	Projeto: WGA - WEB GERENCIADOR DE ATIVIDADES.
 	Project Owner: Adelson Guimarães Monteiro.
-	Desenvolvedor: Adelson Guimaraes.
-	Data de início: 2019-09-09T06:04:57.576Z.
+	Desenvolvedor: Adelson Guimaraes Monteiro.
+	Data de início: 2019-09-09T13:23:46.531Z.
 	Data Atual: 09/09/2019.
 */
 
@@ -14,6 +14,7 @@ Class Projetousuario implements JsonSerializable {
 	private $id;
 	private $objprojeto;
 	private $objusuario;
+	private $privilegio;
 	private $ativo;
 	private $datacadastro;
 	private $dataedicao;
@@ -24,6 +25,7 @@ Class Projetousuario implements JsonSerializable {
 		$id = NULL,
 		Projeto $objprojeto = NULL,
 		Usuario $objusuario = NULL,
+		$privilegio = NULL,
 		$ativo = NULL,
 		$datacadastro = NULL,
 		$dataedicao = NULL
@@ -32,6 +34,7 @@ Class Projetousuario implements JsonSerializable {
 		$this->id	= $id;
 		$this->objprojeto	= $objprojeto;
 		$this->objusuario	= $objusuario;
+		$this->privilegio	= $privilegio;
 		$this->ativo	= $ativo;
 		$this->datacadastro	= $datacadastro;
 		$this->dataedicao	= $dataedicao;
@@ -57,6 +60,13 @@ Class Projetousuario implements JsonSerializable {
 	}
 	public function setObjusuario($objusuario) {
 		$this->objusuario = $objusuario;
+		return $this;
+	}
+	public function getPrivilegio() {
+		return $this->privilegio;
+	}
+	public function setPrivilegio($privilegio) {
+		$this->privilegio = $privilegio;
 		return $this;
 	}
 	public function getAtivo() {
@@ -87,6 +97,7 @@ Class Projetousuario implements JsonSerializable {
 			"id"	=> $this->id,
 			"objprojeto"	=> $this->objprojeto,
 			"objusuario"	=> $this->objusuario,
+			"privilegio"	=> $this->privilegio,
 			"ativo"	=> $this->ativo,
 			"datacadastro"	=> $this->datacadastro,
 			"dataedicao"	=> $this->dataedicao

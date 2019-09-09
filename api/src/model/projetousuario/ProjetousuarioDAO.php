@@ -2,10 +2,10 @@
 // dao : projetousuario
 
 /*
-	Projeto: WGA - Web Gerenciador de Atividades.
+	Projeto: WGA - WEB GERENCIADOR DE ATIVIDADES.
 	Project Owner: Adelson Guimarães Monteiro.
-	Desenvolvedor: Adelson Guimaraes.
-	Data de início: 2019-09-09T06:04:57.576Z.
+	Desenvolvedor: Adelson Guimaraes Monteiro.
+	Data de início: 2019-09-09T13:23:46.531Z.
 	Data Atual: 09/09/2019.
 */
 
@@ -25,10 +25,11 @@ Class ProjetousuarioDAO {
 
 	//cadastrar
 	function cadastrar (projetousuario $obj) {
-		$this->sql = sprintf("INSERT INTO projetousuario(idprojeto, idusuario, ativo)
-		VALUES(%d, %d, '%s')",
+		$this->sql = sprintf("INSERT INTO projetousuario(idprojeto, idusuario, privilegio, ativo)
+		VALUES(%d, %d, '%s', '%s')",
 			mysqli_real_escape_string($this->con, $obj->getObjprojeto()->getId()),
 			mysqli_real_escape_string($this->con, $obj->getObjusuario()->getId()),
+			mysqli_real_escape_string($this->con, $obj->getPrivilegio()),
 			mysqli_real_escape_string($this->con, $obj->getAtivo()));
 
 		$this->superdao->resetResponse();
@@ -46,9 +47,10 @@ Class ProjetousuarioDAO {
 
 	//atualizar
 	function atualizar (Projetousuario $obj) {
-		$this->sql = sprintf("UPDATE projetousuario SET idprojeto = %d, idusuario = %d, ativo = '%s', dataedicao = '%s' WHERE id = %d ",
+		$this->sql = sprintf("UPDATE projetousuario SET idprojeto = %d, idusuario = %d, privilegio = '%s', ativo = '%s', dataedicao = '%s' WHERE id = %d ",
 			mysqli_real_escape_string($this->con, $obj->getObjprojeto()->getId()),
 			mysqli_real_escape_string($this->con, $obj->getObjusuario()->getId()),
+			mysqli_real_escape_string($this->con, $obj->getPrivilegio()),
 			mysqli_real_escape_string($this->con, $obj->getAtivo()),
 			mysqli_real_escape_string($this->con, date('Y-m-d H:i:s')),
 			mysqli_real_escape_string($this->con, $obj->getId()));

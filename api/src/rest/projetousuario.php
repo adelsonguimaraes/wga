@@ -2,10 +2,10 @@
 // rest : projetousuario
 
 /*
-	Projeto: WGA - Web Gerenciador de Atividades.
+	Projeto: WGA - WEB GERENCIADOR DE ATIVIDADES.
 	Project Owner: Adelson Guimarães Monteiro.
-	Desenvolvedor: Adelson Guimaraes.
-	Data de início: 2019-09-09T06:04:57.576Z.
+	Desenvolvedor: Adelson Guimaraes Monteiro.
+	Data de início: 2019-09-09T13:23:46.531Z.
 	Data Atual: 09/09/2019.
 */
 
@@ -37,6 +37,7 @@ function cadastrar () {
 		NULL,
 		new Projeto($data['idprojeto']),
 		new Usuario($data['idusuario']),
+		$data['privilegio'],
 		$data['ativo']
 	);
 	$control = new ProjetousuarioControl($obj);
@@ -60,6 +61,7 @@ function atualizar () {
 		$data['id'],
 		new Projeto($data['idprojeto']),
 		new Usuario($data['idusuario']),
+		$data['privilegio'],
 		$data['ativo']
 	);
 	$control = new ProjetousuarioControl($obj);
