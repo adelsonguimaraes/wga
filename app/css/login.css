@@ -3,7 +3,6 @@
     height: 100%;
     align-items: center;
     width: 100%;
-    overflow: scroll;
 }
 .container .login-panel {
     max-width: 400px;

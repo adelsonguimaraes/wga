@@ -8,6 +8,10 @@
         <form name="formCad" class="form">
             <div class="row">
                 <div class="col-md-12">
+                    <label>Nome</label>
+                    <input type="email" class="form-control" name="email" ng-model="obj.email" ng-required="true">
+                </div>
+                <div class="col-md-12">
                     <label>Email</label>
                     <input type="email" class="form-control" name="email" ng-model="obj.email" ng-required="true">
                 </div>
@@ -15,10 +19,14 @@
                     <label>Senha</label>
                     <input type="password" class="form-control" name="senha" ng-model="obj.senha" ng-required="true">
                 </div>
+                <div class="col-md-12">
+                    <label>Confirme a senha</label>
+                    <input type="password" class="form-control" name="senha" ng-model="obj.senha" ng-required="true">
+                </div>
             </div>
             <br>
-            <button class="btn btn-default btn-lg btn-block" ng-click="logar(obj)" ng-disabled="formCad.$invalid">Acessar</button>
-            <a class="inscreverse" href="#/registrar">Criar uma conta gratuitamente</a>
+            <button class="btn btn-default btn-lg btn-block" ng-click="logar(obj)" ng-disabled="formCad.$invalid">Registrar</button>
+            <a class="inscreverse" href="#/login">Já tenho uma conta</a>
         </form>
     </div>
 </div>

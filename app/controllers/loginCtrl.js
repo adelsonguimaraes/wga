@@ -10,6 +10,9 @@ angular.module(module).controller('loginCtrl', function ($rootScope, $scope, $lo
 
     $scope.logar = function(obj) {
 
+        console.log(obj);
+        return false;
+
         if (obj.email === null || obj.senha === null) {
             SweetAlert.swal({ html: true, title: "Atenção", text: 'Preencha corretamente os campos.', type: "error" });
             return false;
