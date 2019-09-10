@@ -9,7 +9,8 @@ angular.module(module).controller('registrarCtrl', function ($rootScope, $scope,
             nome: null,
             email: null,
             senha1: null,
-            senha2: null
+            senha2: null,
+            cod: ''
         }
         // sinaliza tela de confirmação do código recebido por email
         $scope.confirmar = false;
@@ -41,8 +42,9 @@ angular.module(module).controller('registrarCtrl', function ($rootScope, $scope,
             data: copy,
             cod: $scope.cod
         }
-        console.log($scope.cod);
 
+        $rootScope.loadon();
+        
         let data = { "metodo": "enviarCodAutorizacao", "data": dataRequest, "class": "authentication", request: 'POST' };
 
         authenticationAPI.genericAuthentication(data)
@@ -50,11 +52,7 @@ angular.module(module).controller('registrarCtrl', function ($rootScope, $scope,
                 //se o sucesso === true
                 if (response.data.success == true) {
                     //criamos a session
-
-                    authenticationAPI.createSession(response.data.data, dataRequest.remember);
                     $rootScope.loadoff();
-                    $location.path("/home");
-                    $rootScope.setValuesMyMenu();
                 } else {
                     $rootScope.loadoff();
                     SweetAlert.swal({ html: true, title: "Atenção", text: response.data.msg, type: "error" });
@@ -67,6 +65,7 @@ angular.module(module).controller('registrarCtrl', function ($rootScope, $scope,
 
     $scope.insereCod = function ($event, obj) {
         // removendo tudo que não senha numero e letras
+        if (obj.cod == undefined || obj.cod.length <= 0) return false;
         let cod = obj.cod.replace(/[\W]/g, "");
         cod = cod.substr(0, 6); // limitando a quantidade de digitos a 6
         cod = cod.toUpperCase(); // colocando tudo em caixa alta
@@ -76,18 +75,16 @@ angular.module(module).controller('registrarCtrl', function ($rootScope, $scope,
         if (cod === $scope.cod) registrar();
     }
 
-    function registrar () {
+    function registrar() {
         $rootScope.loadon();
 
-        return false;
+        let dataRequest = {
+            nome: $scope.obj.nome,
+            email: $scope.obj.email,
+            senha: MD5($scope.obj.senha1)
+        };
 
-        var dataRequest = {
-            email: obj.email,
-            senha: MD5(obj.senha),
-            remember: obj.remember || false
-        }
-
-        var data = { "metodo": "logar", "data": dataRequest, "class": "authentication", request: 'POST' };
+        var data = { "metodo": "registrar", "data": dataRequest, "class": "authentication", request: 'POST' };
 
         authenticationAPI.genericAuthentication(data)
             .then(function successCallback(response) {

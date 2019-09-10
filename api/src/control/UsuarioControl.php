@@ -44,6 +44,9 @@ Class UsuarioControl {
 	function qtdTotal () {
 		return $this->objDAO->qtdTotal();
 	}
+	function logar ( $email, $senha ) {
+		return $this->objDAO->logar ( $email, $senha );
+	}
 }
 
 // Classe gerada com BlackCoffeePHP 2.0 - by Adelson Guimarães

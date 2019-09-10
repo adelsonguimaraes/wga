@@ -13,7 +13,7 @@ angular.module(module).controller('mainCtrl', function ($rootScope, $scope, auth
     }
     $rootScope.loadoff = function () {
         var load = document.getElementById('loading');
-        load.style.display = 'none';
+        load.classList = "main-splash";
     }
 
     $rootScope.rotinas = [

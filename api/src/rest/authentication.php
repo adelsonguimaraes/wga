@@ -47,11 +47,11 @@ $_POST['metodo']();
 
 function enviarCodAutorizacao () {
     $data = $_POST["data"];
-    $data['nome'] = GenericFunctions::formatNome($data['data']['nome']);
+    $data['data']['nome'] = GenericFunctions::formatNome($data['data']['nome']);
     $cod = $data["cod"];
 
     // html com o corpo da msg
-    $html = "Olá " . $data['nome'] . ", <br>seu código de autorização é <b>" . $cod . "</b>.";
+    $html = "Olá " . $data['data']['nome'] . ", <br>seu código de autorização é <b>" . $cod . "</b>.";
     
     // como usar
     $obj = new EnviaEmail();
@@ -59,8 +59,32 @@ function enviarCodAutorizacao () {
 	    ->setAssunto('Código de Autorização - '  . date('H:i:s d/m/Y'))
 	    ->setEmails(array('adelsonguimaraes@gmail.com'))
 	    ->setMensagem($html);
-    echo $obj->enviar();
+    $obj->enviar();
 
+    $response = array("success"=>true, "data"=>"", "msg"=>"");
+
+    echo json_encode($response);
+
+}
+
+function registrar () {
+    $data = $_POST['data'];
+    $data["nome"] = GenericFunctions::formatNome($data['nome']);
+
+    // cadastrando novo usuario no banco de dados
+    $obj = new Usuario();
+    $obj->setNome($data["nome"])
+        ->setEmail($data['email'])
+        ->setSenha($data['senha'])
+        ->setUltimoacesso(date("Y-m-d H:i:s"));
+    $control = new UsuarioControl($obj);
+    $resp = $control->cadastrar();
+    if ($resp['success'] == false) die (json_encode($resp));
+
+    // loga o usuário em seguida
+    $control = new UsuarioControl();
+	$response = $control->logar($data['email'], $data['senha']);
+    echo json_encode($resp);
 }
 
 function logar() {

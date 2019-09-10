@@ -1,11 +1,10 @@
 <?php
 /*
-	Projeto: AdminSPE.
-	Project Owner: Priscila.
-	Gerente de Projeto: Nilton Caldas Jr.
+	Projeto: GWA - Gerencimanto Web de Atividades.
+	Project Owner: Adelson Guimarães Monteiro.
 	Desenvolvedor: Adelson Guimarães Monteiro.
-	Data de início: 02/05/2017.
-	Data Atual: 07/05/2017.
+	Data de início: 09/09/2019.
+	Data Atual: 10/09/2019.
 */
 
 /* Trata $_POST */

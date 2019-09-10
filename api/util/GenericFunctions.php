@@ -1,5 +1,7 @@
 <?php
 Class GenericFunctions {
+
+
     function formatCel($cel) {
         return "(" .substr($cel, 0, 2). ") " . substr($cel, 2, 5) . "-" . substr($cel, 7, 4); 
     }
@@ -34,4 +36,6 @@ Class GenericFunctions {
         return trim($nome);
     }
 }
+
+class_alias('GenericFunctions', 'GenFun');
 ?>
