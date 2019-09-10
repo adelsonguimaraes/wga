@@ -6,9 +6,10 @@ angular.module(module).controller('mainCtrl', function ($rootScope, $scope, auth
     $rootScope.loading = 'none';
     $scope.title = ' -- WGA --';
 
-    $rootScope.loadon = function () {
+    $rootScope.loadon = function (msg) {
         var load = document.getElementById('loading');
         load.classList += " show-splash";
+        load.querySelector("a").innerHTML = (msg==undefined) ? 'Carregando... Aguarde' : msg;
     }
     $rootScope.loadoff = function () {
         var load = document.getElementById('loading');

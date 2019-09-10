@@ -59,8 +59,8 @@ header a {
 
 .assinatura {
     position: fixed;
-    right: 15px;
+    right: 5px;
     bottom:5px;
     color: rgb(146, 146, 146);
-    font-size: 12px;
+    font-size: 10px;
 }

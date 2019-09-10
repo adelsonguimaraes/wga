@@ -1,4 +1,5 @@
 <?php
+Class GenericFunctions {
     function formatCel($cel) {
         return "(" .substr($cel, 0, 2). ") " . substr($cel, 2, 5) . "-" . substr($cel, 7, 4); 
     }
@@ -18,4 +19,19 @@
         }
         return $interesse;
     }
+    function formatNome ($nome) {
+        $nome = strtolower($nome);
+        $split = explode(" ", $nome);
+        $array = array("de", "do", "da", "dos", "das");
+        $nome = "";
+        foreach ($split as $key) {
+            if (array_search($key, $array)) {
+                $nome .= $key . " ";
+            }else{
+                $nome .= ucfirst($key) . " ";
+            }
+        }
+        return trim($nome);
+    }
+}
 ?>

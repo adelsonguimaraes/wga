@@ -20,7 +20,7 @@
     display: block;
     text-align: center;
     padding: 15px;
-    margin-bottom:25px;
+    margin-bottom:15px;
 }
 
 .container-login .login-panel .titulo h1 {
@@ -38,8 +38,9 @@
 .container-login .login-panel .inscreverse {
     display: block;
     text-align: center;
-    padding: 15px;
+    padding: 5px;
     color: #fff;
     text-decoration: none;
     cursor: pointer;
+    margin-top: 20px;
 }

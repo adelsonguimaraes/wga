@@ -7,7 +7,7 @@
     position: fixed;
     display: none;
     z-index: 10050;
-    opacity: 0.8;
+    opacity: 0.55;
     filter: alpha(opacity=80); /* For IE8 and earlier */
     align-items: center;
     flex-direction: column; /* centraliza itens flex horizontalmente */

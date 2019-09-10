@@ -1,38 +1,79 @@
 <?php
 /*
-	Projeto: WGA - WEB GERENCIADOR DE ATIVIDADES.
-	Project Owner: Adelson Guimarães Monteiro.
-	Desenvolvedor: Adelson Guimaraes Monteiro.
-	Data de início: 2019-09-09T13:23:46.531Z.
-	Data Atual: 09/09/2019.
+	Projeto: AdminSPE.
+	Project Owner: Priscila.
+	Gerente de Projeto: Nilton Caldas Jr.
+	Desenvolvedor: Adelson Guimarães Monteiro.
+	Data de início: 02/05/2017.
+	Data Atual: 07/05/2017.
 */
 
-//Trata requisição
-if(!$_POST){
-	if($_GET) {$_POST = $_GET;}
-	else{$_POST =  file_get_contents ( 'php://input' );}}
+/* Trata $_POST */
+if(!$_POST){ $_POST =  file_get_contents ( "php://input" ); }
+if (gettype($_POST) != "array") $_POST = json_decode ($_POST, true);
 
-// conexao
-require_once("../util/Conexao.php");
+setlocale (LC_ALL, 'pt_BR'); // localizando região
+date_default_timezone_set('America/Manaus'); // setando timezone local
 
-// carrega class
+/*
+	Requires
+*/
+require_once(__DIR__ . "/../../util/Conexao.php"); // Conexao
+require_once(__DIR__ . "/../../util/ResolveMysqlError.php"); // Resolve erros mysql
+require_once(__DIR__ . "/../../util/uploadFiles.php"); //Upload images
+require_once(__DIR__ . "/../../util/EnviaEmail.php"); //Envia Email
+require_once(__DIR__ . "/../../util/GenericFunctions.php"); //Functions
+
+/*
+	Fun��o AutoLoad, Carrega as Classes quando
+	tenta-se criar uma nova instancia de uma Classe.
+	Exemplo: new Cupom(), new UsuarioDAO(), new EmpresaControl()... 
+*/
 function carregaClasses($class){
-	//Verifica se existe Control no nome da classe
+	/*
+		Verifica se existe "Control" no nome da classe
+	*/
+//  	if(strripos($class, "Control")) {
 	if(strrpos($class, "Control")) {
-		require_once("../control/".$class.".php");
-	//Verifica se existe DAO no nome da classe
-	}else if(strrpos($class, "DAO")) {
-		$bean = strtolower(substr($class, 0, strrpos($class, "DAO")));
-		require_once "../model/".$bean."/".$class.".php";
- 	//se nao for control ou dao é model
+ 		/*	require na Control */ 
+ 		require_once __DIR__ . "/../control/".$class.".php";
+ 	}
+ 	/*
+		Verifica se existe "Control" no nome da classe
+	*/
+ 	else if(strrpos($class, "DAO")) {
+ 		/* Monta o nome da Bean */
+ 		$bean = strtolower(substr($class, 0, strrpos($class, "DAO")));
+ 		/*	require na DAO */
+ 		require_once __DIR__ . "/../model/".$bean."/".$class.".php";
+ 	/*
+		Se n�o for DAO nem Control � Model.
+	*/
  	}else{
-		$bean = strtolower($class);
-		require_once "../model/".$bean."/".$class.".php";
+ 		/* Monta o nome da Bean */
+ 		$bean = strtolower($class);
+ 		/*	require na model */
+ 		require_once __DIR__ . "/../model/".$bean."/".$class.".php";
+ 	}
+}
+
+/*
+	Chama o AutoLoad
+*/
+spl_autoload_register("carregaClasses");
+
+/*
+	Geta o Rest
+*/
+function getRest($class) {
+	if($class) {
+		require_once $class.".php";
 	}
 }
 
-//chama autoload
-spl_autoload_register("carregaClasses");
+/*
+	Chama a fun��o GetRest
+*/
+getRest($_POST['class']);
 
-// Classe gerada com BlackCoffeePHP 2.0 - by Adelson Guimarães
 ?>
