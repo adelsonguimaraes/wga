@@ -9,8 +9,9 @@ angular.module(module).controller('loginCtrl', function ($rootScope, $scope, $lo
     }
 
     $scope.logar = function(obj) {
-
-        console.log(obj);
+        let copy = angular.copy(obj);
+        copy.senha = MD5(copy.senha);
+        console.log(copy);
         return false;
 
         if (obj.email === null || obj.senha === null) {

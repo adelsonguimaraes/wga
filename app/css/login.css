@@ -1,40 +1,41 @@
-.container {
+.container-login {
     display: flex;
     height: 100%;
     align-items: center;
     width: 100%;
+    min-height: 400px;
 }
-.container .login-panel {
+.container-login .login-panel {
     max-width: 400px;
     flex:1;
     margin: 0 auto;
 }
 
-.container .login-panel .img {
+.container-login .login-panel .img {
     width: 80%;
     margin-left: 40px;
 }
 
-.container .login-panel .titulo {
+.container-login .login-panel .titulo {
     display: block;
     text-align: center;
     padding: 15px;
     margin-bottom:25px;
 }
 
-.container .login-panel .titulo h1 {
+.container-login .login-panel .titulo h1 {
     font-weight: bold;
 }
-.container .login-panel .titulo small {
+.container-login .login-panel .titulo small {
     font-size:16px;
 }
 
-.container .login-panel input {
+.container-login .login-panel input {
     background: rgba(202, 75, 75, 0.17);
     border: 1px solid #fff;
     color: #fff;
 }
-.container .login-panel .inscreverse {
+.container-login .login-panel .inscreverse {
     display: block;
     text-align: center;
     padding: 15px;

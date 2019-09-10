@@ -8,7 +8,7 @@ angular.module(module).controller('mainCtrl', function ($rootScope, $scope, auth
 
     $rootScope.loadon = function () {
         var load = document.getElementById('loading');
-        load.style.display = 'block';
+        load.classList += " show-splash";
     }
     $rootScope.loadoff = function () {
         var load = document.getElementById('loading');

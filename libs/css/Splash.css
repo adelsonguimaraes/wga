@@ -1,5 +1,5 @@
 .main-splash {
-    background-color: #fff;
+    background-color: #171717; /*#fff;*/
     width: 100% !important;
     height: 100% !important;
     top:0 !important;
@@ -9,20 +9,17 @@
     z-index: 10050;
     opacity: 0.8;
     filter: alpha(opacity=80); /* For IE8 and earlier */
+    align-items: center;
+    flex-direction: column; /* centraliza itens flex horizontalmente */
+    justify-content: center; /* centraliza itens flex verticalmente */
 }
 
-.main-splash > img {
-    max-width: 100%;
-    max-height: 100%;
-    top:0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-    overflow: auto;
-    position: fixed;
+.show-splash {
+    display: flex !important;
 }
 
-.main-splash > show {
-    display: block !important;
+.main-splash .load-info {
+    color: aliceblue;
+    font-weight: bold;
+    font-size: 16px;
 }

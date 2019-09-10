@@ -3,17 +3,20 @@ body, html {
     margin: 0;
 }
 body {
-    background: url('../../libs/img/back.jpg');
+    background: url('../../libs/img/back.jpg') no-repeat;
     background-size: cover;
     height: 100vh !important;
     width: 100%;
+    background-color: #9a9a9a;
+    
 }
 .wrapper { 
     background: #2d388cb8; /*#8c2d2d;*/
-    /* width: 100%; */
+    width: inherit;
     height: inherit;
     color: #fff;
     padding: 15px;
+    overflow: auto;
 }
 header {
     background: #8c2d2d;

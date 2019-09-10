@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-login">
     <div class="login-panel">
         <!-- <img class="img" src="./libs/img/postit.png" alt="" srcset=""> -->
         <div class="titulo">
@@ -28,13 +28,18 @@
             </div>
             <div class="row"  ng-if="confirmar">
                 <div class="col-md-12">
-                    <label>Insira o código de confirmação</label>
-                    <input type="text" class="form-control" name="cod" ng-model="obj.cod" ng-required="true">
+                    <label>Insira o código enviado ao seu Email</label>
+                    <input type="text" class="form-control" placeholder="Insira o cógido" name="cod" ng-model="obj.cod" ng-keyup="insereCod($event, obj)" ng-required="true">
                 </div>
             </div>
             <br>
-            <button class="btn btn-default btn-lg btn-block" ng-click="salvar(obj)" ng-disabled="formCad.$invalid">Registrar</button>
-            <a class="inscreverse" href="#/login">Já tenho uma conta</a>
+            <div ng-if="!confirmar">
+                <button class="btn btn-default btn-lg btn-block" ng-click="salvar(obj)" ng-disabled="formCad.$invalid">Registrar</button>
+                <a class="inscreverse" href="#/login">Já tenho uma conta</a>
+            </div>
+            <div ng-if="confirmar">
+                <a class="inscreverse" ng-click="naoRecebiCod()">Não recebi o código</a>
+            </div>
         </form>
     </div>
 </div>
