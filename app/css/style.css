@@ -53,3 +53,11 @@ header a {
 .importante {
     color: red;
 }
+
+.assinatura {
+    position: fixed;
+    right: 15px;
+    bottom:5px;
+    color: rgb(146, 146, 146);
+    font-size: 12px;
+}
