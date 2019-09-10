@@ -11,19 +11,19 @@
             <div class="row" ng-if="!confirmar">
                 <div class="col-md-12">
                     <label>Nome</label>
-                    <input type="text" class="form-control" name="nome" ng-model="obj.nome" ng-required="true">
+                    <input type="text" class="form-control" name="nome" ng-model="obj.nome" placeholder="Qual seu nome?" ng-required="true">
                 </div>
                 <div class="col-md-12">
                     <label>Email</label>
-                    <input type="email" class="form-control" name="email" ng-model="obj.email" ng-required="true">
+                    <input type="email" class="form-control" name="email" ng-model="obj.email" placeholder="Qual seu email?" ng-required="true">
                 </div>
                 <div class="col-md-12">
                     <label>Senha</label>
-                    <input type="password" class="form-control" name="senha1" ng-model="obj.senha1" ng-required="true">
+                    <input type="password" class="form-control" name="senha1" ng-model="obj.senha1" placeholder="Insira a sua senha" ng-required="true">
                 </div>
                 <div class="col-md-12">
                     <label>Confirme a senha</label>
-                    <input type="password" class="form-control" name="senha2" ng-model="obj.senha2" ng-required="true">
+                    <input type="password" class="form-control" name="senha2" ng-model="obj.senha2" placeholder="Confirme a senha" ng-required="true">
                 </div>
             </div>
             <div class="row"  ng-if="confirmar">
