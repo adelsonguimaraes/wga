@@ -5,7 +5,7 @@ body, html {
 body {
     background: url('../../libs/img/back.jpg');
     background-size: cover;
-    height: 100vh;
+    height: 100vh !important;
     width: 100%;
 }
 .wrapper { 
