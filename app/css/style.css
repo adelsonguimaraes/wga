@@ -90,14 +90,16 @@ header .top-header {
 
 /* bottom-header inicio */
 header .bottom-header {
-    /* display: flex; */
-    width: 100%;
-    /* height: 45px; */
-    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    width: inherit;
+    height: 40px;
     /* background: #193368; */
     background: #1933689b;
     position: relative;
-    /* top: -45px; */
+    top: -40px;
     z-index: -1;
     border-bottom: 1px solid #1c1e23;
     transition-property: all;
@@ -110,16 +112,35 @@ header .bottom-header-show {
     height: 100vh;
 }
 
+.bottom-header .menu-titulo {
+    padding: 0 15px;
+    z-index: 1;
+    /* background: #233873; */
+    /* display: flex; */
+    /* justify-items: flex-end; */
+    text-align: right;
+    width: 100%;
+}
+
+.menu-titulo a {
+    color: #fff;
+    font-size: 25px;
+    cursor: pointer;
+}
+.menu-titulo i {
+    font-size: 35px;
+}
+
 .bottom-header .menu {
     width: 100%;
-    height: inherit;
+    height: 100%;
     display: grid;
     grid-template-columns: auto auto;
     align-items: center;
     justify-content: center;
     overflow: auto;
-    padding: 20px;
-    /* margin: 0 auto; */
+    /* padding: 20px; */
+    /* position: absolute; */
 }
 
 .menu a {
