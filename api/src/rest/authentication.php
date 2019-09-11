@@ -1,44 +1,9 @@
 <?php
 session_start();
 
-// header("Access-Control-Allow-Origin: *");
-
 /* Inclui a Class de autoLoad */
 require_once 'autoload.php';
 
-/*
-  Backup do Banco
-*/
-// require_once("../../util/dump.php");
-
-// require_once '../../../api/util/Conexao.php';
-//var_dump(json_decode($_POST['data']));
-/*
-	Verifica métodos requisitado
-*/
-
-// switch ($_POST['metodo']) {
-    // case 'logar':
-    //     logar();
-    //     break;
-        
-    // case 'trocarempresa':
-    //    	trocarEmpresa();
-    //    	break;
-    // case 'mudarsenha':
-    //     mudarSenha();
-    //     break;
-
-    // case 'salvaempresafavorita':
-    //     salvaEmpresaFavorita();
-    //     break;
-        
-    // case 'listaempresasusuario': 
-    // 	listarEmpresasUsuario();
-
-    // default:
-    //     break;
-// }
 $_POST['metodo']();
 
 /*
@@ -50,8 +15,21 @@ function enviarCodAutorizacao () {
     $data['data']['nome'] = GenericFunctions::formatNome($data['data']['nome']);
     $cod = $data["cod"];
 
+    // verificando se o email já está cadastrado no banco de dados
+    $controlUsuario = new UsuarioControl();
+    $resp = $controlUsuario->buscarPorEmail($data['data']['email']);
+    if ($resp['success'] == false) return $resp;
+    
+    // caso retorne algum dado do email do usuario buscado
+    if (!empty($resp['data'])) {
+        $resp['msg'] = "Este email já está cadastrado!";
+        $resp['success'] = false;
+        die (json_encode($resp));
+    }
+
     // html com o corpo da msg
-    $html = "Olá " . $data['data']['nome'] . ", <br>seu código de autorização é <b>" . $cod . "</b>.";
+    $html = "Olá <b>" . $data['data']['nome'] . "</b>,
+    <br>seu código de autorização é <b>" . $cod . "</b>.";
     
     // como usar
     $obj = new EnviaEmail();
@@ -83,7 +61,7 @@ function registrar () {
 
     // loga o usuário em seguida
     $control = new UsuarioControl();
-	$response = $control->logar($data['email'], $data['senha']);
+	$resp = $control->logar($data['email'], $data['senha']);
     echo json_encode($resp);
 }
 
@@ -104,19 +82,6 @@ function logar() {
     
     $usuarioControl = new UsuarioControl();
 	$response = $usuarioControl->logar($email, $senha);
-	// echo $dados;
-	// exit;
-	// if ( $dados['success'] == false ) return $dados;
-
-	// $result = array("success"=>false, "msg"=>"Usuario ou Senha incorretos!", "data"=>"");
-	
-	// if($dados) {
-	// 	$result = array(
-	//     		"success"   => true,
-	//     		"msg"       => "logado",
-	//     		"data"      => $usuario = array('idusuario'=>$dados->idusuario,'usuario'=>$dados->usuario, 'idperfilusuarioempresa'=>$dados->idperfilusuarioempresa, 'idempresa'=>$dados->idempresa, 'nomeempresa'=>$dados->nomeempresa, 'trocarempresa'=>'', 'inatividade'=>'ativo')
-	//     );
-	// }
 
     echo json_encode( $response );
 }

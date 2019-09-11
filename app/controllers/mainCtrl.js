@@ -38,25 +38,4 @@ angular.module(module).controller('mainCtrl', function ($rootScope, $scope, auth
             'url': 'cartacredito'
         },
     ];
-
-    $scope.meusDados = function () {
-        setTimeout(function(){
-            var mh = document.querySelector("#mymenu #menu-header")
-            mh.addEventListener("click", function (e) {
-                // chama tela de meus dados
-                window.location.replace('#meusdados');
-                MyMenu.close();
-            });
-        },300);
-    }
-    $scope.meusDados();
-
-
-    $rootScope.setValuesMyMenu = function () {
-        if ($rootScope.usuario) {
-            // getando menu usuário
-            $rootScope.getMenu();
-        }    
-    }
-    $rootScope.setValuesMyMenu();
 });

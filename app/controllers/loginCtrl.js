@@ -11,9 +11,7 @@ angular.module(module).controller('loginCtrl', function ($rootScope, $scope, $lo
     $scope.logar = function(obj) {
         let copy = angular.copy(obj);
         copy.senha = MD5(copy.senha);
-        console.log(copy);
-        return false;
-
+        
         if (obj.email === null || obj.senha === null) {
             SweetAlert.swal({ html: true, title: "Atenção", text: 'Preencha corretamente os campos.', type: "error" });
             return false;
@@ -38,7 +36,6 @@ angular.module(module).controller('loginCtrl', function ($rootScope, $scope, $lo
                     authenticationAPI.createSession(response.data.data, dataRequest.remember);
                     $rootScope.loadoff();
                     $location.path("/home");
-                    $rootScope.setValuesMyMenu();
                 } else {
                     $rootScope.loadoff();
                     SweetAlert.swal({ html: true, title: "Atenção", text: response.data.msg, type: "error" });

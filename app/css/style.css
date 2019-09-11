@@ -19,12 +19,12 @@ body {
     overflow: auto;
 }
 header {
-    background: #8c2d2d;
+    background: #10244c;
     position: fixed;
     top: 0;
     left:0;
     width: 100%;
-    height: 45px;
+    height: 40px;
     z-index: 2;
     display: grid;
     grid-template-columns: 10% auto;

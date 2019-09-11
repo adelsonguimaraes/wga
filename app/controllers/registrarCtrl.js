@@ -35,7 +35,6 @@ angular.module(module).controller('registrarCtrl', function ($rootScope, $scope,
             return SweetAlert.swal({ html: true, title: "Atenção", text: "As senhas estão diferentes!", type: "error" });
         }
 
-        $scope.confirmar = true;
         $scope.cod = gerarCod(6); // chamando a função de gerar código com 6 digitos
         
         let dataRequest = {
@@ -51,7 +50,7 @@ angular.module(module).controller('registrarCtrl', function ($rootScope, $scope,
             .then(function successCallback(response) {
                 //se o sucesso === true
                 if (response.data.success == true) {
-                    //criamos a session
+                    $scope.confirmar = true;
                     $rootScope.loadoff();
                 } else {
                     $rootScope.loadoff();
@@ -63,16 +62,23 @@ angular.module(module).controller('registrarCtrl', function ($rootScope, $scope,
         
     }
 
+    $scope.registrando = false;
     $scope.insereCod = function ($event, obj) {
-        // removendo tudo que não senha numero e letras
         if (obj.cod == undefined || obj.cod.length <= 0) return false;
+        // se estiver enviando não passa mais
+        if ($scope.registrando) return false;
+        
+        // removendo tudo que não senha numero e letras
         let cod = obj.cod.replace(/[\W]/g, "");
         cod = cod.substr(0, 6); // limitando a quantidade de digitos a 6
         cod = cod.toUpperCase(); // colocando tudo em caixa alta
         $scope.obj.cod = cod; // alimentando o scope.cod com o cod digitado
 
         // se o codigo inserido pelo usuário for identico ao gerado
-        if (cod === $scope.cod) registrar();
+        if (cod === $scope.cod) {
+            $scope.registrando = true;
+            registrar();
+        }
     }
 
     function registrar() {
@@ -81,7 +87,8 @@ angular.module(module).controller('registrarCtrl', function ($rootScope, $scope,
         let dataRequest = {
             nome: $scope.obj.nome,
             email: $scope.obj.email,
-            senha: MD5($scope.obj.senha1)
+            senha: MD5($scope.obj.senha1),
+            remember: false
         };
 
         var data = { "metodo": "registrar", "data": dataRequest, "class": "authentication", request: 'POST' };
@@ -91,11 +98,9 @@ angular.module(module).controller('registrarCtrl', function ($rootScope, $scope,
                 //se o sucesso === true
                 if (response.data.success == true) {
                     //criamos a session
-
                     authenticationAPI.createSession(response.data.data, dataRequest.remember);
                     $rootScope.loadoff();
                     $location.path("/home");
-                    $rootScope.setValuesMyMenu();
                 } else {
                     $rootScope.loadoff();
                     SweetAlert.swal({ html: true, title: "Atenção", text: response.data.msg, type: "error" });
@@ -107,6 +112,7 @@ angular.module(module).controller('registrarCtrl', function ($rootScope, $scope,
 
     $scope.naoRecebiCod = function () {
         $scope.confirmar = false;
+        $scope.registrando = false;
 
         if (obj.email === null || obj.senha === null) {
             SweetAlert.swal({ html: true, title: "Atenção", text: 'Preencha corretamente os campos.', type: "error" });
