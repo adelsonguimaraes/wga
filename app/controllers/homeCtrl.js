@@ -2,7 +2,7 @@ angular.module(module).controller('homeCtrl', function ($rootScope, $scope, auth
     //Verifica Sessao e permissão de acesso
     if (!$rootScope.usuario) { $location.path("/login"); return false; }
     
-    $scope.title = 'Home';
+    $scope.titulo = 'Home';
 
    
     

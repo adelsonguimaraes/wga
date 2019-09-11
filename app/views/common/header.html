@@ -1,5 +1,17 @@
 <header>
-    <i id="menu" title="Menu" class="fa fa-home 2x" style="cursor:pointer; font-size:25px;color:#fff;top:10px;left:10px;position: absolute;" ng-if="usuario"></i>
-    <a>{{title}}</a>
+    <div class="top-header">
+        <a class="icone"></a>
+        <a class="titulo">{{titulo}}</a>
+        <div class="profile">
+            <a class="nome-profile"></a>
+            <div class="imagem-profile">
+                <img src="libs/img/back.jpg">
+            </div>
+        </div>
+    </div>
+    <div class="bottom-header">
+        
+        <a class="botao-menu" ng-click="toogleMenu()"><i class="fa fa-th"></i></a>
+    </div>
 </header>
 <div class="space"></div>

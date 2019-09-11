@@ -38,4 +38,14 @@ angular.module(module).controller('mainCtrl', function ($rootScope, $scope, auth
             'url': 'cartacredito'
         },
     ];
+
+    // menu
+    $scope.toogleMenu = function () {
+        let el = window.document.querySelector(".bottom-header");
+        if (el.className.indexOf("bottom-header-show")==-1) {
+            el.classList += " bottom-header-show";
+        }else{
+            el.classList = "bottom-header";
+        }
+    }
 });

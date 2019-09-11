@@ -1,10 +1,10 @@
 .main-home .btn-topo {
-    background: transparent;
-    padding: 15px;
+    background: orangered;
+    /* padding: 15px; */
     width: 100%;
-    display: flex;
+    /* display: flex; */
     flex-direction: row;
-    align-items: flex-end;
+    /* align-items: flex-end; */
 }
 .main-home .btn-topo a {
     color: #fff;
@@ -13,10 +13,7 @@
 }
 
 @media (min-width: 1020px) {
-    .agendamentos {
-        display: grid !important;
-        grid-template-columns: 50% 50% !important;
-    }
+    
 }
 
 @media (min-width: 1250px) {
