@@ -1,6 +1,8 @@
 .main-home {
     width: inherit;
     height: max-content;
+    font-size: 25px;
+    /* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
 }
 
 .main-home .home-profile {
@@ -15,6 +17,8 @@
     /* background: rgba(255, 255, 255, 0.096); */
     padding: 15px;
     margin: 0 10px 0 10px;
+    /* border-bottom: 1px solid #ffffffa1; */
+    /* border-radius: 5%; */
 }
 
 .home-profile .top-profile {
@@ -27,42 +31,41 @@
 .top-profile .imagem-profile {
     height: 140px;
     width: 140px;
-    border-radius: 100px;
-    border: 2px solid #fff;
+    border-radius: 50%;
+    /* border: 2px solid #fff; */
     -webkit-box-shadow: 0px -1px 2px 3px rgba(0,0,0,0.42);
     -moz-box-shadow: 0px -1px 2px 3px rgba(0,0,0,0.42);
     box-shadow: 0px -1px 2px 3px rgba(0,0,0,0.42);
+    object-fit: cover;
 }
 .top-profile .lado-esquerdo, .lado-direito {
     padding: 15px;
-    font-size: 20px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
-.top-profile .lado-esquerdo a {
-    color: #fff;
-}
-.top-profile .lado-direito a {
-    color: #fff;
-}
-
-.home-profile .bottom-profile {
-    height: 60px;
-    display: flex;
-    flex-direction: column;
-    align-items: inherit;
-    justify-content: inherit;
-}
-
-.bottom-profile a {
+.home-profile a {
     color: #fff;
     text-decoration: none;
     font-size: 20px;
 }
+.home-profile .descricao {
+    font-weight: 1;
+    color: #29cdde;
+}
 
+.home-profile .bottom-profile {
+    height: 65px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.bottom-profile .nome-profile {
+    font-weight: 1;
+}
 
 @media (min-width: 1020px) {
     

@@ -39,6 +39,17 @@ angular.module(module).controller('mainCtrl', function ($rootScope, $scope, auth
         },
     ];
 
+    // window.document.addEventListener("mousemove", function (e) {
+    //     if (!$rootScope.usuario) {
+    //         if (window.screen.width >= 1020) {
+    //             let moveX = (e.pageX * -1 / 100);
+    //             let moveY = (e.pageY * -1 / 60);
+    //             let body = window.document.querySelector("body");
+    //             body.style.backgroundPositionX = moveX + 'px';// + moveY + 'px';
+    //         }
+    //     }
+    // });
+    
     // menu
     $scope.toogleMenu = function () {
         let el = window.document.querySelector(".bottom-header");
