@@ -51,6 +51,9 @@ header .top-header {
     justify-content: center;
     align-items: center;
     flex-direction: row;
+    -webkit-box-shadow: 0px -1px 2px 3px rgba(0,0,0,0.42);
+    -moz-box-shadow: 0px -1px 2px 3px rgba(0,0,0,0.42);
+    box-shadow: 0px -1px 2px 3px rgba(0,0,0,0.42);
 }
 .top-header .icone {
     flex: 1;
@@ -84,12 +87,17 @@ header .top-header {
 .profile .imagem-profile{
     height: 30px;
     width: 30px;
-    overflow: hidden;
-    border-radius: 100px;
+    /* overflow: hidden; */
+    /* border-radius: 100px; */
     cursor: pointer;
 }
 .imagem-profile img{
-    max-height: 100%; /* obedecer a altura máxima do elmento pai */
+    height: 100%;
+    width: 100%;
+    padding: 1px;
+    border-radius: 100px;
+    border: 1px solid #425a8a;
+
 }
 /* top-header fim */
 
