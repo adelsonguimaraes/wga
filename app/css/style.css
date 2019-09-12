@@ -54,7 +54,7 @@ header .top-header {
     flex: 1;
     color: #fff;
     max-width: 30%;
-    /* width: 34px; */
+    font-size: 20px;
 }
 .top-header .titulo{
     color: #fff;
@@ -96,7 +96,7 @@ header .bottom-header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* justify-content: center; */
+    justify-content: center;
     width: inherit;
     height: 100vh;
     /* background: #193368; */
@@ -105,6 +105,7 @@ header .bottom-header {
     top: -100vh;
     z-index: -1;
     border-bottom: 1px solid #1c1e23;
+    /* padding: 10px; */
     transition-property: all;
 	transition-duration: .5s;
 	transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
@@ -210,8 +211,35 @@ header .bottom-header-show {
 }
 
 @media (min-width: 1020px) {
+    .top-header .icone {
+        font-size: 25px;
+        margin-left: 10px;
+    }
+    header .bottom-header {
+        /* width: 65px; */
+        background: transparent;
+        align-items: flex-start;
+        border: none;
+        transition-property: all;
+        transition-duration: .5s;
+        transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+    }
     .bottom-header .menu {
-        grid-template-columns: auto auto auto auto;
+        /* grid-template-columns: auto auto auto auto; */
+        width: 65px;
+        height: inherit;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        background: #1933689b;
+    }
+    .menu a {
+        line-height: 20px;
+        width: inherit;
+        height: 80px;
+    }
+    .menu i {
+        font-size: 30px;
     }
     .profile .nome-profile {
         display: flex;
