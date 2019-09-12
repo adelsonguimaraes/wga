@@ -1,16 +1,68 @@
-.main-home .btn-topo {
-    background: orangered;
-    /* padding: 15px; */
-    width: 100%;
-    /* display: flex; */
-    flex-direction: row;
-    /* align-items: flex-end; */
+.main-home {
+    width: inherit;
+    height: max-content;
 }
-.main-home .btn-topo a {
+
+.main-home .home-profile {
+    /* width: inherit; */
+    max-height: max-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    font-size: 20px;
+    /* background: rgba(255, 255, 255, 0.096); */
+    padding: 15px;
+    margin: 0 10px 0 10px;
+}
+
+.home-profile .top-profile {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.top-profile .imagem-profile {
+    height: 140px;
+    width: 140px;
+    border-radius: 100px;
+    border: 2px solid #fff;
+    -webkit-box-shadow: 0px -1px 2px 3px rgba(0,0,0,0.42);
+    -moz-box-shadow: 0px -1px 2px 3px rgba(0,0,0,0.42);
+    box-shadow: 0px -1px 2px 3px rgba(0,0,0,0.42);
+}
+.top-profile .lado-esquerdo, .lado-direito {
+    padding: 15px;
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.top-profile .lado-esquerdo a {
+    color: #fff;
+}
+.top-profile .lado-direito a {
+    color: #fff;
+}
+
+.home-profile .bottom-profile {
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: inherit;
+    justify-content: inherit;
+}
+
+.bottom-profile a {
     color: #fff;
     text-decoration: none;
-    font-size: 16px;
+    font-size: 20px;
 }
+
 
 @media (min-width: 1020px) {
     
