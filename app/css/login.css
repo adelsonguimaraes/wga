@@ -32,10 +32,18 @@
 }
 
 .container-login .login-panel input {
-    background: rgba(202, 75, 75, 0.17);
-    border: 1px solid #fff;
+    background: rgba(202, 75, 75, 0.048);
+    /* background: transparent; */
+    /* border: none; */
+    border-bottom: 1px solid #fff;
+    box-shadow: none;
     color: #fff;
 }
+
+.login-panel input::placeholder {
+    color: #ffffff57;
+}
+
 .container-login .login-panel .inscreverse {
     display: block;
     text-align: center;

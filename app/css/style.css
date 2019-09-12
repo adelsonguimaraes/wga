@@ -106,7 +106,7 @@ header .bottom-header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     width: inherit;
     height: 100vh;
     /* background: #193368; */
@@ -145,15 +145,13 @@ header .bottom-header-show {
 }
 
 .bottom-header .menu {
-    /* width: 100%; */
-    /* height: 320px; */
-    /* min-height: 320px; */
     display: grid;
     grid-template-columns: auto auto;
     align-items: center;
     justify-content: center;
     overflow: overlay;
     margin-bottom: 15px;
+    padding: 5px;
 }
 
 .menu a {
@@ -173,7 +171,8 @@ header .bottom-header-show {
 }
 
 .menu a:hover {
-    background: rgb(241, 84, 11);
+    /* background: rgb(241, 84, 11); */
+    background: rgba(140, 45, 46, 0.45);
     font-weight: bold;
 }
 
@@ -228,6 +227,7 @@ header .bottom-header-show {
     header .bottom-header {
         /* width: 65px; */
         background: transparent;
+        background: none;
         align-items: flex-start;
         border: none;
         transition-property: all;

@@ -48,4 +48,15 @@ angular.module(module).controller('mainCtrl', function ($rootScope, $scope, auth
             el.classList = "bottom-header";
         }
     }
+
+    // $scope.mouseEnterMenu = function (menu) {
+    //     let el = window.document.querySelector(".bottom-header");
+    //     // if (menu === "home") 
+    //     el.style.background = "rgba(140, 45, 46, 0.45)";
+    // }
+    // $scope.mouseLeaveMenu = function (menu) {
+    //     let el = window.document.querySelector(".bottom-header");
+    //     // if (menu === "home") 
+    //     el.removeAttribute("style");
+    // }
 });
