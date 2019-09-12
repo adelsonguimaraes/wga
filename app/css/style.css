@@ -173,6 +173,7 @@ header .bottom-header-show {
 .menu a:hover {
     /* background: rgb(241, 84, 11); */
     background: rgba(140, 45, 46, 0.45);
+    border: none;
     font-weight: bold;
 }
 
