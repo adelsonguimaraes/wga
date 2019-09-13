@@ -66,6 +66,7 @@ header .top-header {
     color: #fff;
     max-width: 30%;
     font-size: 20px;
+    cursor: pointer;
 }
 .top-header .titulo{
     color: #fff;
@@ -106,6 +107,50 @@ header .top-header {
     object-fit: cover;
 
 }
+.top-header .menu-profile {
+    position: absolute;
+    background: #892222bf;
+    right: 0;
+    top: -160px;
+    z-index: -1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* padding: 5px; */
+    width: 65px;
+    min-height: 100px;
+    transition-property: all;
+	transition-duration: .5s;
+	transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+}
+
+.top-header .menu-profile-show {
+    top: 50px;
+}
+
+.menu-profile a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    line-height: 30px;
+    color: #fff;
+    text-decoration: none;
+    padding: 5px;
+    height: 80px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.menu-profile a:hover {
+    background: #5d212b;
+}
+
+.menu-profile i {
+    font-size: 30px;
+}
+
 /* top-header fim */
 
 /* bottom-header inicio */
@@ -247,7 +292,6 @@ header .bottom-header-show {
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
-        /* background: #1933689b; */
         background: #193368de;
     }
     .menu a {

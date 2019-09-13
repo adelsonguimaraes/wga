@@ -2,7 +2,7 @@
     width: inherit;
     height: max-content;
     font-size: 25px;
-    /* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .main-home .home-profile {
@@ -49,10 +49,11 @@
     color: #fff;
     text-decoration: none;
     font-size: 20px;
+    font-weight: bold;
 }
 .home-profile .descricao {
     font-weight: 1;
-    color: #29cdde;
+    color: #e4e4e4;
 }
 
 .home-profile .bottom-profile {
@@ -64,7 +65,7 @@
 }
 
 .bottom-profile .nome-profile {
-    font-weight: 1;
+    /* font-weight: 1; */
 }
 
 @media (min-width: 1020px) {

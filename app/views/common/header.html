@@ -2,14 +2,24 @@
     <div class="top-header">
         <a class="icone" ng-click="toogleMenu()"><i class="fa fa-th"></i></a>
         <a class="titulo">{{titulo}}</a>
-        <div class="profile">
-            <a class="nome-profile">usuariomodelo@email.com</a>
+        <div class="profile" ng-click="clickProfileHeader()">
+            <a class="nome-profile">{{usuario.email}}</a>
             <div class="imagem-profile">
                 <img src="libs/img/profile2.jpg">
             </div>
         </div>
+        <div class="menu-profile">
+            <a>
+                <i class="fa fa-user-o"></i>
+                Perfil
+            </a>
+            <a ng-click="logout()">
+                <i class="fa fa-power-off"></i>
+                Sair
+            </a>
+        </div>
     </div>
-    <div class="bottom-header">
+    <div class="bottom-header" ng-click="toogleMenu()">
         <!-- <div class="menu-titulo">
             <a ng-click="toogleMenu()"><i class="fa fa-close"></i></a>
         </div> -->

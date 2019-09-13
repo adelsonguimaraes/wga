@@ -60,6 +60,15 @@ angular.module(module).controller('mainCtrl', function ($rootScope, $scope, auth
         }
     }
 
+    $scope.clickProfileHeader = function () {
+        let el = window.document.querySelector(".menu-profile");
+        if (el.className.indexOf("menu-profile-show")==-1) {
+            el.classList += " menu-profile-show";
+        }else{
+            el.classList = "menu-profile";
+        }
+    }
+
     // $scope.mouseEnterMenu = function (menu) {
     //     let el = window.document.querySelector(".bottom-header");
     //     // if (menu === "home") 
