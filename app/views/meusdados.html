@@ -35,17 +35,16 @@
                     <button type="button" class="btn btn-default" ng-click="copyLink()" title="Clique para copiar o link"><i class="fa fa-clipboard"></i></button>
                 </div>
             </div>
-            <div class="form-group" style="text-align: center;">
-                <div class="col-sm-2"></div>
-                <div id="preview" class="col-sm-2" style="cursor: pointer;" ng-click="anexar()">
-                    <img height=120 widht=120 ng-src="{{obj.foto}}">
+            <div class="form-group flex-column-center">
+                <div id="preview" style="cursor: pointer;" ng-click="anexar()">
+                    <img height=120 width=120 style="background: #fff;border-radius: 5%; object-fit: cover;" ng-src="{{obj.foto}}">
                 </div>
-                <label class="control-label col-sm-7" for="foto">Clique na foto para alterar</label>
+                <label class="control-label" for="foto">Clique na foto para alterar</label>
                 <input id="inputFile" style="display:none;" type="file" accept="image/*" onchange="angular.element(this).scope().changeFiles(this)">
             </div>
             <div style="margin-top:10px" class="form-group">
                 <div class="col-sm-12 controls">
-                    <button type="submit" id="btn-login" class="btn btn-primary pull-right" ng-click="formCad.$invalid || salvar(obj)" ng-disabled="formCad.$invalid">Salvar</button>
+                    <button type="submit" id="btn-login" class="btn btn-default pull-right" ng-click="formCad.$invalid || salvar(obj)" ng-disabled="formCad.$invalid">Salvar</button>
                 </div>
             </div>
         </form>

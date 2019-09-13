@@ -13,7 +13,7 @@ angular.module(module).controller('meusdadosCtrl', function ($rootScope, $scope,
         foto: api + $rootScope.usuario.foto,
         link: window.location.href.substring(0, window.location.href.lastIndexOf('#')) + '#/atendimento/' + '@' + $rootScope.usuario.nome.toLowerCase().replace(' ', '') + '&' + MD5($rootScope.usuario.idusuario)
     }
-    if ($rootScope.usuario.foto === null) $scope.obj.foto = './libs/img/icons/icon-512x512.png';
+    if ($rootScope.usuario.foto === null || !$rootScope.usuario.foto) $scope.obj.foto = './libs/img/profile2.jpg';
 
     // quando o usuário clica na foto para alterar
     $scope.anexar = function (obj) {

@@ -294,6 +294,13 @@ input::placeholder {
     color: #ffffff57;
 }
 
+.flex-column-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 @media (min-width: 0px) {
     .top-header .icone {
         font-size: 25px;
