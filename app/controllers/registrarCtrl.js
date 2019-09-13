@@ -63,21 +63,16 @@ angular.module(module).controller('registrarCtrl', function ($rootScope, $scope,
     }
 
     $scope.registrando = false;
-    $scope.insereCod = function ($event, obj) {
-        if (obj.cod == undefined || obj.cod.length <= 0) return false;
-        // se estiver enviando não passa mais
-        if ($scope.registrando) return false;
-        
-        // removendo tudo que não senha numero e letras
-        let cod = obj.cod.replace(/[\W]/g, "");
-        cod = cod.substr(0, 6); // limitando a quantidade de digitos a 6
-        cod = cod.toUpperCase(); // colocando tudo em caixa alta
-        $scope.obj.cod = cod; // alimentando o scope.cod com o cod digitado
-
+    $scope.insereCod = function ($event, cod) {
         // se o codigo inserido pelo usuário for identico ao gerado
-        if (cod === $scope.cod) {
-            $scope.registrando = true;
-            registrar();
+        if (cod==undefined) return false;
+        if (cod.length >= 6) {
+            if (cod.toUpperCase() === $scope.cod) {
+                $scope.registrando = true;
+                registrar();
+            }else{
+                MyToast.show("O código digitado é inválido");
+            }
         }
     }
 

@@ -12,7 +12,7 @@ $_POST['metodo']();
 
 function enviarCodAutorizacao () {
     $data = $_POST["data"];
-    $data['data']['nome'] = GenericFunctions::formatNome($data['data']['nome']);
+    $data['data']['nome'] = GenericFunctions::getInstance()->formatNome($data['data']['nome']);
     $cod = $data["cod"];
 
     // verificando se o email já está cadastrado no banco de dados
@@ -47,7 +47,7 @@ function enviarCodAutorizacao () {
 
 function registrar () {
     $data = $_POST['data'];
-    $data["nome"] = GenericFunctions::formatNome($data['nome']);
+    $data["nome"] = GenericFunctions::getInstance()->formatNome($data['nome']);
 
     // cadastrando novo usuario no banco de dados
     $obj = new Usuario();

@@ -2,6 +2,14 @@
 Class GenericFunctions {
 
 
+    public static function getInstance()
+    {
+        static $instance = null;
+		if (null === $instance){
+			$instance = new static();
+		}
+		return $instance;
+    }
     function formatCel($cel) {
         return "(" .substr($cel, 0, 2). ") " . substr($cel, 2, 5) . "-" . substr($cel, 7, 4); 
     }

@@ -1072,6 +1072,25 @@ function soNumeros() {
     }
 }
 
+function soAlfaNumericos() {
+    return {
+        restrict: "A",
+        require: "ngModel",
+        link: function (sc, el, att, model) {
+            el.bind("keyup", function (e) {
+                var input = model.$viewValue;
+                input = input.toString().replace(/[\W]/g, "");
+                input = input.substring(0, 6); // limitando a quantidade de digitos a 6
+                input = input.toUpperCase(); // colocando tudo em caixa alta
+                // if (+input <= 0) input = 0;
+
+                model.$setViewValue(input);
+                model.$render();
+            });
+        }
+    }
+}
+
 function celular () {
     return {
         restrict: "A",
@@ -1147,6 +1166,7 @@ angular
     .directive('mascara', mascara)
     .directive('mascaraMoeda', mascaraMoeda)
     .directive('soNumeros', soNumeros)
+    .directive('soAlfanumericos', soAlfaNumericos)
     .directive('celular', celular)
     .directive('reiniciarFootable', function () {
         return function (scope, element) {
