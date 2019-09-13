@@ -285,6 +285,7 @@ header .bottom-header-show {
         transition-property: all;
         transition-duration: .5s;
         transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+        width: 0;
     }
     .bottom-header .menu {
         width: 65px;
