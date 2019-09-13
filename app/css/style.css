@@ -272,6 +272,28 @@ header .bottom-header-show {
     font-size: 10px;
 }
 
+.bg-transparent {
+    /* background: #ffffff14; */
+    /* background: #24255eb0; */
+    background: #4a1a50db;
+    padding: 15px;
+    border-radius: 2%;
+    border: 1px solid #afafaf14;
+}
+
+input {
+    background: rgba(202, 75, 75, 0.048) !important ;
+    /* background: transparent; */
+    /* border: none; */
+    border-bottom: 1px solid #fff !important ;
+    box-shadow: none !important ;
+    color: #fff !important ;
+}
+
+input::placeholder {
+    color: #ffffff57;
+}
+
 @media (min-width: 0px) {
     .top-header .icone {
         font-size: 25px;

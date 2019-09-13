@@ -2,6 +2,8 @@ angular.module(module).controller('meusdadosCtrl', function ($rootScope, $scope,
     //Verifica Sessao e permissão de acesso
     if (!$rootScope.usuario) { $location.path("/login"); return false; }
 
+    $scope.titulo = "Meu Perfil";
+
     $scope.obj = {
         id: $rootScope.usuario.idusuario,
         nome: $rootScope.usuario.nome,
