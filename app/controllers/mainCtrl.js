@@ -16,28 +16,45 @@ angular.module(module).controller('mainCtrl', function ($rootScope, $scope, auth
         load.classList = "main-splash";
     }
 
-    $rootScope.rotinas = [
+    $rootScope.menus = [
         {
             'nome': 'Home',
-            'icon': 'fa fa-home',
-            'url': 'home'
+            'icone': 'fa fa-home',
+            'url': 'home',
+            'active': false
         },
         {
-            'nome': 'Clientes',
-            'icon': 'fa fa-user',
-            'url': 'cliente'
+            'nome': 'Projetos',
+            'icone': 'fa fa-book',
+            'url': 'projeto',
+            'active': false
         },
         {
-            'nome': 'Agenda',
-            'icon': 'fa fa-calendar',
-            'url': 'agenda'
+            'nome': 'Amigos',
+            'icone': 'fa fa-user',
+            'url': 'amigo',
+            'active': false
         },
         {
-            'nome': 'Cartas de Crédito',
-            'icon': 'fa fa-credit-card',
-            'url': 'cartacredito'
+            'nome': 'Alertas',
+            'icone': 'fa fa-bell',
+            'url': 'alerta',
+            'active': false
         },
     ];
+
+    function setMenuAtivo () {
+        // setando menu ativo
+        let hash = window.document.location.hash;
+        for (let i of $rootScope.menus) {
+            if (hash.indexOf("#/" + i.url)>=0) {
+                i.active = true;
+            }else{
+                i.active = false;
+            }
+        }
+    }
+    setMenuAtivo();
 
     // window.document.addEventListener("mousemove", function (e) {
     //     if (!$rootScope.usuario) {
@@ -58,6 +75,7 @@ angular.module(module).controller('mainCtrl', function ($rootScope, $scope, auth
         }else{
             el.classList = "bottom-header";
         }
+        setMenuAtivo();
     }
 
     $scope.clickProfileHeader = function () {

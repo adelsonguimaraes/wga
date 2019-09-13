@@ -19,26 +19,14 @@
             </a>
         </div>
     </div>
-    <div class="bottom-header" ng-click="toogleMenu()">
+    <div class="bottom-header">
         <!-- <div class="menu-titulo">
             <a ng-click="toogleMenu()"><i class="fa fa-close"></i></a>
         </div> -->
         <div class="menu">
-            <a class="active">
-                <i class="fa fa-home"></i>
-                Home
-            </a>
-            <a>
-                <i class="fa fa-book"></i>
-                Projetos
-            </a>
-            <a>
-                <i class="fa fa-user"></i>
-                Amigos
-            </a>
-            <a>
-                <i class="fa fa-bell"></i>
-                Alertas
+            <a ng-repeat="obj in menus" ng-class="{'active': obj.active}" ng-click="toogleMenu()" href="#/{{obj.url}}">
+                <i ng-class="obj.icone"></i>
+                {{obj.nome}}
             </a>
         </div>
         <!-- <a class="botao-menu" ng-click="toogleMenu()"><i class="fa fa-th"></i></a> -->
