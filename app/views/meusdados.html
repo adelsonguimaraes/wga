@@ -1,6 +1,6 @@
 <div ng-include="'app/views/common/header.html'"></div>
 <div id="loginbox" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-    <div class="bg-transparent">
+    <div class="bg-transparent" style="max-width: 585px;">
         <form name="formCad" class="form-horizontal" role="form">
 
             <div class="form-group">
@@ -16,9 +16,15 @@
                 </div>
             </div>
             <div class="form-group">
-                <label class="control-label col-sm-2" for="celular">Celular:&nbsp;<span class="importante">*</span></label>
+                <label class="control-label col-sm-2" for="celular">Celular1:&nbsp;<span class="importante">*</span></label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" celular pattern="^\(\d{2}\)\s\d{4,5}-\d{4}$" name="celular" ng-model="obj.celular" placeholder="Celular" ng-required="true">
+                    <input type="text" class="form-control" celular pattern="^\(\d{2}\)\s\d{4,5}-\d{4}$" name="celular1" ng-model="obj.celular1" placeholder="Celular" ng-required="true">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="celular">Celular2:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" celular pattern="^\(\d{2}\)\s\d{4,5}-\d{4}$" name="celular2" ng-model="obj.celular2" placeholder="Celular" ng-required="true">
                 </div>
             </div>
             <div class="form-group">

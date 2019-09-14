@@ -28,9 +28,11 @@ angular.module(module).controller('meusdadosCtrl', function ($rootScope, $scope,
         
         var file = $rootScope.filesCopy[0]; // pegando o file/img uplodado
         var preview = document.querySelector('#preview'); // getando elemento preview
+        let img = preview.querySelector('img');
         preview.innerHTML = '';
         setTimeout(()=>{
-            preview.innerHTML += '<img height=120 width=120 src="' + file.base64 + '" alt="' + file.name + '">'; // atulizando a imagem
+            // preview.innerHTML += '<img height=120 width=120 src="' + file.base64 + '" alt="' + file.name + '">'; // atulizando a imagem
+            preview.innerHTML += '<img height=120 width=120 style="background: #fff;border-radius: 5%; object-fit: cover;" src="' + file.base64 + '" alt="' + file.name + '">';
         }, 100);
     }
     $scope.closePreview = function () {
