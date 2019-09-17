@@ -276,10 +276,14 @@ header .bottom-header-show {
     /* background: #ffffff14; */
     /* background: #24255eb0; */
     /* background: #4a1a50db; */
-    background: #10032763;
+    background: #140430cc;
     padding: 15px;
     border-radius: 2%;
     border: 1px solid #afafaf14;
+}
+
+.w80x100 {
+    width: 100%;
 }
 
 input {
@@ -369,6 +373,11 @@ input::placeholder {
     }
     .profile .nome-profile {
         display: flex;
+    }
+
+    .w80x100 {
+        width: 80%;
+        margin: 0 auto;
     }
 }
 

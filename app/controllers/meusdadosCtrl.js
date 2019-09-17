@@ -11,7 +11,7 @@ angular.module(module).controller('meusdadosCtrl', function ($rootScope, $scope,
         newsenha: "",
         celular: $rootScope.usuario.celular,
         foto: api + $rootScope.usuario.foto,
-        link: window.location.href.substring(0, window.location.href.lastIndexOf('#')) + '#/atendimento/' + '@' + $rootScope.usuario.nome.toLowerCase().replace(' ', '') + '&' + MD5($rootScope.usuario.idusuario)
+        link: window.location.href.substring(0, window.location.href.lastIndexOf('#')) + '#/perfil/' + '@' + $rootScope.usuario.email.toLowerCase().replace(/\s/g, '') + '&' + MD5($rootScope.usuario.idusuario)
     }
     if ($rootScope.usuario.foto === null || !$rootScope.usuario.foto) $scope.obj.foto = './libs/img/profile2.jpg';
 
