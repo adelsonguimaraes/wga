@@ -16,6 +16,9 @@ angular.module(module).controller('mainCtrl', function ($rootScope, $scope, auth
         load.classList = "main-splash";
     }
 
+    $scope.stopvideobg = false;
+    if (window.innerWidth < 1020) $scope.stopvideobg = true;
+
     $rootScope.menus = [
         {
             'nome': 'Home',
