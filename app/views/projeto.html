@@ -1,5 +1,8 @@
 <div ng-include="'app/views/common/header.html'"></div>
 <div class="main-projeto">
+    <div class="header-projeto">
+        <select class="select-projeto" ng-model="projeto" ng-options="obj.id as obj.nome for obj in projetos"></select>
+    </div>
     <section class="bg-transparent w80x100">
         <div class="table-responsive">
             <table class="table table-striped table-bordered">

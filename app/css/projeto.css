@@ -1,4 +1,25 @@
 .main-projeto {
     width: 100%;
     height: max-content;
+    position: relative;
+    margin-top: 30px;
+}
+
+.main-projeto .header-projeto {
+    background: #190a39;
+    height: 40px;
+    width: 100%;
+    position: fixed;
+    top:50px;
+}
+
+.header-projeto .select-projeto {
+    width: 100%;
+    padding: 8px;
+    background-color: #5a1e3a;
+    text-shadow: none;
+    border: none;
+    border-bottom: 1px solid #290c1a;
+    font-size: 14px;
+    font-weight: 600;
 }
