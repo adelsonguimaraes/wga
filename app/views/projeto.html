@@ -10,6 +10,14 @@
                         <td>Descrição</td>
                         <td>Data Criação</td>
                     </tr>
+                    <tr ng-repeat="obj in projetos">
+                        <td>{{obj.id}}</td>
+                        <td>{{obj.nome}}</td>
+                        <td>
+                            <textarea class="textarea-table" readonly>{{obj.descricao}}</textarea>
+                        </td>
+                        <td>{{obj.datacadastro | datahora}}</td>
+                    </tr>
                 </thead>
             </table>
         </div>
