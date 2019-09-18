@@ -19,4 +19,8 @@ angular.module(module).controller('projetoCtrl', function ($rootScope, $scope, a
         }
     ];
 
+    $scope.selecionaProjeto = function (obj) {
+        console.log($scope.projeto);
+    }
+
 });

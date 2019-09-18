@@ -327,6 +327,13 @@ input::placeholder {
     justify-content: center;
 }
 
+.flex-row-center {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
 @media (min-width: 0px) {
     .top-header .icone {
         font-size: 25px;
