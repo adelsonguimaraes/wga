@@ -6,6 +6,7 @@ angular.module(module).controller('meusdadosCtrl', function ($rootScope, $scope,
 
     $scope.obj = {
         id: $rootScope.usuario.idusuario,
+        idocupacao: '',
         nome: $rootScope.usuario.nome,
         email: $rootScope.usuario.email,
         newsenha: "",
@@ -21,6 +22,31 @@ angular.module(module).controller('meusdadosCtrl', function ($rootScope, $scope,
         var input = document.querySelector('#inputFile');
         input.click(); // força o evento click
     }
+
+    // listando consultores
+    $scope.ocupacoes = [];
+    $scope.listarOcupacoes = function () {
+        // verificando se o filtro está preenchido
+        var data = { "metodo": "listar", "data": "", "class": "ocupacao", request: 'GET' };
+
+        $rootScope.loadon();
+
+        genericAPI.generic(data)
+            .then(function successCallback(response) {
+                //se o sucesso === true
+                if (response.data.success == true) {
+                    $scope.ocupacoes = response.data.data;
+                    // if ($scope.consultores.length) $scope.obj.consultor = $scope.consultores[0];
+                    $rootScope.loadoff();
+                } else {
+                    SweetAlert.swal({ html: true, title: "Atenção", text: response.data.msg, type: "error" });
+                }
+            }, function errorCallback(response) {
+                //error
+            });
+    }
+    $scope.listarOcupacoes();
+
 
     $rootScope.filesCopy = [];
     var setPreviewAnexos = function (files) {
@@ -60,6 +86,9 @@ angular.module(module).controller('meusdadosCtrl', function ($rootScope, $scope,
     }
 
     $scope.salvar = function (obj) {
+
+        console.log(obj);
+        return false;
         
         objcopy = angular.copy(obj);
         if (objcopy.newsenha != "") objcopy.newsenha = MD5(obj.newsenha); // caso a senha seja diferente de vazio

@@ -1115,14 +1115,14 @@ function celular () {
 
             el.bind("keyup", function (e) {
                 var input = model.$viewValue;
-                if(input.length<=0) return false;
+                if(input=== undefined || input.length<=0) return false;
                 model.$setViewValue(format(input));
                 model.$render();
             });
 
             el.bind("focus", function (e) {
                 var input = model.$viewValue;
-                if (input.length <= 0) return false;
+                if (input === undefined || input.length <= 0) return false;
                 model.$setViewValue(format(input));
                 model.$render();
             });

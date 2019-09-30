@@ -1,0 +1,10 @@
+.main-meuperfil {
+    margin: -15px auto;
+}
+
+@media (min-width: 1020px) {
+    .main-meuperfil {
+        margin: 0 auto;
+        width: 600px;
+    }
+}

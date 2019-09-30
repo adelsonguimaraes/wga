@@ -13,6 +13,7 @@ Class Usuario implements JsonSerializable {
 	//atributos
 	private $id;
 	private $nome;
+	private $idocupacao;
 	private $celular1;
 	private $celular2;
 	private $email;
@@ -26,6 +27,7 @@ Class Usuario implements JsonSerializable {
 	(
 		$id = NULL,
 		$nome = NULL,
+		$idocupacao = NULL,
 		$celular1 = NULL,
 		$celular2 = NULL,
 		$email = NULL,
@@ -37,6 +39,7 @@ Class Usuario implements JsonSerializable {
 	{
 		$this->id	= $id;
 		$this->nome	= $nome;
+		$this->idocupacao = $cargo;
 		$this->celular1	= $celular1;
 		$this->celular2	= $celular2;
 		$this->email	= $email;
@@ -59,6 +62,13 @@ Class Usuario implements JsonSerializable {
 	}
 	public function setNome($nome) {
 		$this->nome = $nome;
+		return $this;
+	}
+	public function getObjocupacao() {
+		return $this->idocupacao;
+	}
+	public function setObjocupacao($idocupacao) {
+		$this->idocupacao = $idocupacao;
 		return $this;
 	}
 	public function getCelular1() {
@@ -116,6 +126,7 @@ Class Usuario implements JsonSerializable {
 		return [
 			"id"	=> $this->id,
 			"nome"	=> $this->nome,
+			"idocupacao" => $this->idocupacao,
 			"celular1"	=> $this->celular1,
 			"celular2"	=> $this->celular2,
 			"email"	=> $this->email,

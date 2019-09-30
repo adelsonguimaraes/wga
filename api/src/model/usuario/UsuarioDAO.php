@@ -47,12 +47,12 @@ Class UsuarioDAO {
 
 	//atualizar
 	function atualizar (Usuario $obj) {
-		$this->sql = sprintf("UPDATE usuario SET nome = '%s', celular1 = '%s', celular2 = '%s', email = '%s', senha = '%s', ultimoacesso = '%s', dataedicao = '%s' WHERE id = %d ",
+		$this->sql = sprintf("UPDATE usuario SET idocupacao = %d, nome = '%s', celular1 = '%s', celular2 = '%s', email = '%s', ultimoacesso = '%s', dataedicao = '%s' WHERE id = %d ",
+			mysqli_real_escape_string($this->con, $obj->getObjocupacao()->getId()),	
 			mysqli_real_escape_string($this->con, $obj->getNome()),
 			mysqli_real_escape_string($this->con, $obj->getCelular1()),
 			mysqli_real_escape_string($this->con, $obj->getCelular2()),
 			mysqli_real_escape_string($this->con, $obj->getEmail()),
-			mysqli_real_escape_string($this->con, $obj->getSenha()),
 			mysqli_real_escape_string($this->con, $obj->getUltimoacesso()),
 			mysqli_real_escape_string($this->con, date('Y-m-d H:i:s')),
 			mysqli_real_escape_string($this->con, $obj->getId()));
