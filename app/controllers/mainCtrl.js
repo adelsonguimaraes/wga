@@ -1,6 +1,6 @@
 angular.module(module).controller('mainCtrl', function ($rootScope, $scope, authenticationAPI, genericAPI, $location, $uibModal, $timeout) {
     authenticationAPI.sessionCtrl();
-
+    
     $rootScope.api = api;
     
     $rootScope.loading = 'none';

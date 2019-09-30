@@ -31,7 +31,11 @@ angular.module(module).service("authenticationAPI", function ($q, $location, $ro
         };
 
         //cria o local storage
-        localStorage["sessionGWA"] = JSON.stringify(sessionGWA);
+		localStorage["sessionGWA"] = JSON.stringify(sessionGWA);
+		
+		if ($rootScope.usuario) {
+			if ($rootScope.usuario.foto == undefined) $rootScope.usuario.foto = "../libs/img/profile2.jpg";
+		}
     }
 
 	function _sessionCtrl () {
@@ -53,6 +57,11 @@ angular.module(module).service("authenticationAPI", function ($q, $location, $ro
 			sessionStorage['usuarioGWA'] = JSON.stringify(session.usuarioGWA);
 			//converte json string para obj e passa para o scopo usuarioGWA
 			$rootScope.usuario = JSON.parse(sessionStorage['usuarioGWA']);
+
+			if ($rootScope.usuario) {
+				if ($rootScope.usuario.foto == undefined) $rootScope.usuario.foto = "../libs/img/profile2.jpg";
+			}
+
 		}
 
 		/*

@@ -210,8 +210,9 @@ Class UsuarioDAO {
 	/* Logar */
 	function logar ( $email, $senha ) {
 
-		$this->sql = "SELECT * 
-		from usuario
+		$this->sql = "SELECT u.*, o.descricao as 'ocupacao'
+		from usuario u
+		inner join ocupacao o on o.id = u.idocupacao
 		where email = '$email' and senha = '$senha'";
 		$result = mysqli_query( $this->con, $this->sql );
 
@@ -225,13 +226,14 @@ Class UsuarioDAO {
 			while( $row = mysqli_fetch_object( $result) ) {
 				$usuario = array(
 					'idocupacao'=>$row->idocupacao,
+					'ocupacao' =>$row->ocupacao,
 					'idusuario'=>$row->id,
 					'nome'=>$row->nome,
 					'email'=>$row->email,
 					'celular1'=>$row->celular1,
 					'celular2'=>$row->celular2,
 					// 'perfil'=>$row->perfil,
-					// 'foto'=>$row->foto,
+					'foto'=>$row->foto,
 					'auth'=>$row->auth
 				);
 			}

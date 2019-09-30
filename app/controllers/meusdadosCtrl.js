@@ -6,7 +6,7 @@ angular.module(module).controller('meusdadosCtrl', function ($rootScope, $scope,
 
     $scope.obj = {
         id: $rootScope.usuario.idusuario,
-        idocupacao: $rootScope.usuario.idocupacao,
+        idocupacao: $rootScope.usuario.idocupacao + ' - ' + $rootScope.usuario.ocupacao,
         nome: $rootScope.usuario.nome,
         email: $rootScope.usuario.email,
         newsenha: "",
@@ -89,8 +89,6 @@ angular.module(module).controller('meusdadosCtrl', function ($rootScope, $scope,
     $scope.salvar = function (obj) {
 
         objcopy = angular.copy(obj);
-
-        console.log(objcopy);
 
         if (objcopy.newsenha != "") objcopy.newsenha = MD5(obj.newsenha); // caso a senha seja diferente de vazio
         objcopy.celular1 = objcopy.celular1.toString().replace(/^0|[\D]/g, "");

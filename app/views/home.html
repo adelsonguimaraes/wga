@@ -6,7 +6,7 @@
                 <a>25</a>
                 <a class="descricao">Projetos</a>
             </div>
-            <img class="imagem-profile" src="libs/img/profile2.jpg">
+            <img class="imagem-profile" src="{{api+usuario.foto}}">
             <div class="lado-direito">
                 <a>43</a>
                 <a class="descricao">Amigos</a>
@@ -14,7 +14,7 @@
         </div>
         <div class="bottom-profile">
             <a class="nome-profile">{{usuario.nome}}</a>
-            <a class="descricao">{{usuario.cargo || 'Indefinido' }}</a>
+            <a class="descricao">{{usuario.ocupacao || 'Indefinido' }}</a>
         </div>
     </div>
 </section>

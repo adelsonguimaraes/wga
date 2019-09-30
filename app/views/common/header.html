@@ -5,7 +5,7 @@
         <div class="profile" ng-click="clickProfileHeader()">
             <a class="nome-profile">{{usuario.email}}</a>
             <div class="imagem-profile">
-                <img src="libs/img/profile2.jpg">
+                <img src="{{api+usuario.foto || 'libs/img/profile2.jpg'}}">
             </div>
         </div>
         <div class="menu-profile">

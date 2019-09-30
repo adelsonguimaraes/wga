@@ -17,6 +17,7 @@ Class Usuario implements JsonSerializable {
 	private $celular1;
 	private $celular2;
 	private $email;
+	private $foto;
 	private $senha;
 	private $ultimoacesso;
 	private $datacadastro;
@@ -31,6 +32,7 @@ Class Usuario implements JsonSerializable {
 		$celular1 = NULL,
 		$celular2 = NULL,
 		$email = NULL,
+		$foto = NULL,
 		$senha = NULL,
 		$ultimoacesso = NULL,
 		$datacadastro = NULL,
@@ -43,6 +45,7 @@ Class Usuario implements JsonSerializable {
 		$this->celular1	= $celular1;
 		$this->celular2	= $celular2;
 		$this->email	= $email;
+		$this->foto = $foto;
 		$this->senha	= $senha;
 		$this->ultimoacesso	= $ultimoacesso;
 		$this->datacadastro	= $datacadastro;
@@ -92,6 +95,13 @@ Class Usuario implements JsonSerializable {
 		$this->email = $email;
 		return $this;
 	}
+	public function getFoto() {
+		return $this->foto;
+	}
+	public function setFoto($foto) {
+		$this->foto = $foto;
+		return $this;
+	}
 	public function getSenha() {
 		return $this->senha;
 	}
@@ -131,6 +141,7 @@ Class Usuario implements JsonSerializable {
 			"celular2"	=> $this->celular2,
 			"email"	=> $this->email,
 			"senha"	=> $this->senha,
+			"foto" => $this->foto,
 			"ultimoacesso"	=> $this->ultimoacesso,
 			"datacadastro"	=> $this->datacadastro,
 			"dataedicao"	=> $this->dataedicao

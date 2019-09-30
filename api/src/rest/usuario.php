@@ -13,23 +13,7 @@
 require_once 'autoload.php';
 
 //verifica requisição
-switch ($_POST['metodo']) {
-	case 'cadastrar':
-		cadastrar();
-		break;
-	case 'buscarPorId':
-		buscarPorId();
-		break;
-	case 'listar':
-		listar();
-		break;
-	case 'atualizar':
-		atualizar();
-		break;
-	case 'deletar':
-		deletar();
-		break;
-}
+$_POST['metodo']();
 
 function cadastrar () {
 	$data = $_POST['data'];
@@ -77,9 +61,6 @@ function atualizarMeusDados () {
 	if (!empty($_POST['files'])) $files = json_decode($_POST['files']);
 
 	$data = (array) json_decode($_POST['data']);
-
-	var_dump($data);
-	exit;
 
 	// função responsável por upload de arquivos
 	$uploadFiles = new uploadFiles();
