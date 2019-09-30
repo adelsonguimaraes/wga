@@ -38,6 +38,9 @@ Class UsuarioControl {
 	function atualizar () {
 		return $this->objDAO->atualizar($this->obj);
 	}
+	function atualizarMeusDados () {
+		return $this->objDAO->atualizarMeusDados($this->obj);
+	}
 	function deletar () {
 		return $this->objDAO->deletar($this->obj);
 	}

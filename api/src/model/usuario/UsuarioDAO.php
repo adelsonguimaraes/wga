@@ -47,19 +47,42 @@ Class UsuarioDAO {
 
 	//atualizar
 	function atualizar (Usuario $obj) {
-		$this->sql = sprintf("UPDATE usuario SET idocupacao = %d, nome = '%s', celular1 = '%s', celular2 = '%s', email = '%s', ultimoacesso = '%s', dataedicao = '%s' WHERE id = %d ",
+		$this->sql = sprintf("UPDATE usuario SET idocupacao = %d, nome = '%s', celular1 = '%s', celular2 = '%s', email = '%s', dataedicao = '%s' WHERE id = %d ",
 			mysqli_real_escape_string($this->con, $obj->getObjocupacao()->getId()),	
 			mysqli_real_escape_string($this->con, $obj->getNome()),
 			mysqli_real_escape_string($this->con, $obj->getCelular1()),
 			mysqli_real_escape_string($this->con, $obj->getCelular2()),
 			mysqli_real_escape_string($this->con, $obj->getEmail()),
 			mysqli_real_escape_string($this->con, $obj->getUltimoacesso()),
-			mysqli_real_escape_string($this->con, date('Y-m-d H:i:s')),
-			mysqli_real_escape_string($this->con, $obj->getId()));
+			mysqli_real_escape_string($this->con, date('Y-m-d H:i:s')));
 		$this->superdao->resetResponse();
 
 		if(!mysqli_query($this->con, $this->sql)) {
 			$this->superdao->setMsg( resolve( mysqli_errno( $this->con ), mysqli_error( $this->con ), get_class( $obj ), 'Atualizar' ) );
+		}else{
+			$this->superdao->setSuccess( true );
+			$this->superdao->setData( true );
+		}
+		return $this->superdao->getResponse();
+	}
+
+	//atualizar meus dados
+	function atualizarMeusDados (Usuario $obj) {
+
+		$this->sql = "UPDATE usuario SET nome = '" . $obj->getNome() . "'";
+		$this->sql .= ", email = '" . $obj->getEmail() . "'";
+		$this->sql .= ", celular1 = '" . $obj->getCelular1() . "'";
+		$this->sql .= ", celular2 = '" . $obj->getCelular2() . "'";
+		if (!empty($obj->getObjocupacao())) $this->sql .= ", idocupacao = '" . $obj->getObjocupacao()->getId() . "'";
+		if (!empty($obj->getSenha())) $this->sql .= ", senha = '" . $obj->getSenha() . "'";
+		if (!empty($obj->getFoto())) $this->sql .= ", foto = '" . $obj->getFoto() . "'";
+		$this->sql .= ", dataedicao = '" . date('Y-m-d H:i:s') . "'";
+		$this->sql .= " WHERE id = " . $obj->getId();
+
+		$this->superdao->resetResponse();
+
+		if(!mysqli_query($this->con, $this->sql)) {
+			$this->superdao->setMsg( resolve( mysqli_errno( $this->con ), mysqli_error( $this->con ), get_class( $obj ), 'atualizarMeusDados' ) );
 		}else{
 			$this->superdao->setSuccess( true );
 			$this->superdao->setData( true );
@@ -201,10 +224,12 @@ Class UsuarioDAO {
 			$usuario = '';
 			while( $row = mysqli_fetch_object( $result) ) {
 				$usuario = array(
+					'idocupacao'=>$row->idocupacao,
 					'idusuario'=>$row->id,
 					'nome'=>$row->nome,
 					'email'=>$row->email,
-					// 'celular'=>$row->celular1,
+					'celular1'=>$row->celular1,
+					'celular2'=>$row->celular2,
 					// 'perfil'=>$row->perfil,
 					// 'foto'=>$row->foto,
 					'auth'=>$row->auth

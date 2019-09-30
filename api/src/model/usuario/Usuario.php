@@ -39,7 +39,7 @@ Class Usuario implements JsonSerializable {
 	{
 		$this->id	= $id;
 		$this->nome	= $nome;
-		$this->idocupacao = $cargo;
+		$this->idocupacao = $idocupacao;
 		$this->celular1	= $celular1;
 		$this->celular2	= $celular2;
 		$this->email	= $email;

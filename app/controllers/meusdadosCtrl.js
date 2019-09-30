@@ -6,11 +6,12 @@ angular.module(module).controller('meusdadosCtrl', function ($rootScope, $scope,
 
     $scope.obj = {
         id: $rootScope.usuario.idusuario,
-        idocupacao: '',
+        idocupacao: $rootScope.usuario.idocupacao,
         nome: $rootScope.usuario.nome,
         email: $rootScope.usuario.email,
         newsenha: "",
-        celular: $rootScope.usuario.celular,
+        celular1: $rootScope.usuario.celular1,
+        celular2: $rootScope.usuario.celular2,
         foto: api + $rootScope.usuario.foto,
         link: window.location.href.substring(0, window.location.href.lastIndexOf('#')) + '#/perfil/' + '@' + $rootScope.usuario.email.toLowerCase().replace(/\s/g, '') + '&' + MD5($rootScope.usuario.idusuario)
     }
@@ -87,13 +88,16 @@ angular.module(module).controller('meusdadosCtrl', function ($rootScope, $scope,
 
     $scope.salvar = function (obj) {
 
-        console.log(obj);
-        return false;
-        
         objcopy = angular.copy(obj);
+
+        console.log(objcopy);
+
         if (objcopy.newsenha != "") objcopy.newsenha = MD5(obj.newsenha); // caso a senha seja diferente de vazio
-        objcopy.celular = objcopy.celular.toString().replace(/^0|[\D]/g, "");
-        
+        objcopy.celular1 = objcopy.celular1.toString().replace(/^0|[\D]/g, "");
+        objcopy.celular2 = objcopy.celular2.toString().replace(/^0|[\D]/g, "");
+        let split = objcopy.idocupacao.split("-");
+        objcopy.idocupacao = split[0].trim();
+
         $rootScope.loadon();
 
         var formData = new FormData();
