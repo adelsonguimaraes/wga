@@ -20,9 +20,9 @@ angular.module(module).controller('loginCtrl', function ($rootScope, $scope, $lo
         $rootScope.loadon();
         
         var dataRequest = {
-            email: obj.email,
-            senha: MD5(obj.senha),
-            remember: obj.remember || false
+            email: copy.email,
+            senha: copy.senha,
+            remember: copy.remember || false
         }
 
         var data = { "metodo": "logar", "data": dataRequest, "class": "authentication", request: 'POST' };

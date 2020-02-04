@@ -219,7 +219,7 @@ Class UsuarioDAO {
 		$this->superdao->resetResponse();
 		
 		if( !$result ) {
-			$this->superdao->setMsg( resolve( mysqli_errno( $this->con ), mysqli_error( $this->con ), get_class( $obj ), 'Logar' ) );
+			$this->superdao->setMsg( resolve( mysqli_errno( $this->con ), mysqli_error( $this->con ), "Usuário", 'Logar' ) );
 		}else{
 			// caso não retorne objeto mysql result, usuario não encontrado
 			$usuario = '';
